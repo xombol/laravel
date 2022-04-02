@@ -5,18 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact_new;
+use App\Models\History_cont;
 
 class ContactController extends Controller {
     // Создание записи в базе данных!
     public function submit(ContactRequest $reg) {
 
         $contact = new Contact_new();
+        $contact_history = new History_cont(); /*   */
+
+        $contact_history->login = $reg->input('login');
+        $contact_history->name = $reg->input('name');
+        $contact_history->email = $reg->input('email');
+        $contact_history->post = $reg->input('post');
+        $contact_history->admin = $reg->input('admin');
+
         $contact->login = $reg->input('login');
         $contact->name = $reg->input('name');
         $contact->email = $reg->input('email');
-        $contact->message = $reg->input('message');
+        $contact->post = $reg->input('post');
+        $contact->admin = $reg->input('admin');
 
         $contact->save();
+        $contact_history->save();
         return redirect()->route('home')->with('success','Сообщение было давлено');
     }
     // Изменение записи в базе данных!
@@ -25,7 +36,7 @@ class ContactController extends Controller {
         $contact->login = $reg->input('login');
         $contact->name = $reg->input('name');
         $contact->email = $reg->input('email');
-        $contact->message = $reg->input('message');
+        $contact->post = $reg->input('post');
 
         $contact->save();
         return redirect()->route('contact-data-one', $id)->with('success','Сообщение было обновлено');

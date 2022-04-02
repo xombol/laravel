@@ -1,17 +1,19 @@
-@if (Route::has('login'))
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Profile</a>
-        @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+<div class="container">
+    @if (Route::has('login'))
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            @auth
+                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Profile</a>
+            @else
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-            @endif
-        @endauth
-    </div>
-@endif
-@livewireScripts
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                @endif
+            @endauth
+        </div>
+    @endif
+    @livewireScripts
+</div>
 <header class="py-5">
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
@@ -22,7 +24,12 @@
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('home') }}">Yome</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('about') }}">About</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('contact') }}">New user</a>
+
+            @if (Route::has('login'))
+                @auth
+                  <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('contact') }}">New user</a>
+                @endauth
+            @endif
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('contact-data') }}">Users</a>
         </nav>
     </div>

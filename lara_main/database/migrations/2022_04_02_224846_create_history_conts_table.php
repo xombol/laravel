@@ -4,15 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactNewsTable extends Migration
+class CreateHistoryContsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-        Schema::create('contact_news', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create('history_conts', function (Blueprint $table) {
             $table->id();
             $table->string('login');
             $table->string('email');
@@ -28,7 +29,8 @@ class CreateContactNewsTable extends Migration
      *
      * @return void
      */
-    public function down() {
-        Schema::dropIfExists('contact_news');
+    public function down()
+    {
+        Schema::dropIfExists('history_conts');
     }
 }

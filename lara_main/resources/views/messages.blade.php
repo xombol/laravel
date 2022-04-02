@@ -11,6 +11,7 @@
                     <div class="alert alert-info">
                         <div class="row">
                             <div class="col-lg-9">
+
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Login</span>
@@ -23,7 +24,14 @@
                                     </div>
                                     <input type="text" readonly class="form-control" placeholder="{{$el->name }}" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend  ">
+                                        <span class=" text-success input-group-text" id="basic-addon1">Add admin</span>
+                                    </div>
+                                    <input type="text"   readonly class="form-control text-success" placeholder="{{$el->admin }}" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
                             </div>
+
                             <div class="col-lg-3">
                                 <a href="{{ route('contact-data-one',$el->id) }}"><button class="btn btn-success">Детально </button></a>
                             </div>

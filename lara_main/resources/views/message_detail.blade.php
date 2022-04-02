@@ -6,9 +6,31 @@
 <div class="row">
     <div class="col-lg-4">
         <div class="alert alert-info">
-            <p >User name is : {{$data->login}}</p>
-            <p>Mail :  {{$data->email}}</p>
-            <p>Post : {{$data->message}}</p>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Name</span>
+                </div>
+                <input type="text" readonly name="email" class="form-control"  value="{{$data->name}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Login</span>
+            </div>
+            <input type="text" readonly name="email" class="form-control"  value="{{$data->login}}" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Mail</span>
+            </div>
+            <input type="text" readonly name="email" class="form-control"  value="{{$data->email}}" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Post</span>
+            </div>
+            <input type="text" readonly name="email" class="form-control"  value="{{$data->post}}" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
         </div>
 
         <a href="{{ route('contact-update',$data->id) }}"><button class="btn btn-success">Edit</button></a>
