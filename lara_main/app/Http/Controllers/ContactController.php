@@ -57,7 +57,7 @@ class ContactController extends Controller {
     public function contactUpdate($id){
         $contact = new Contact_new;
         // return view('messages',['data' => $contact->orderBy('id','asc')->take(2)->skip(1)->get()]);
-        return view('ontact_update',['data' => $contact->find($id)]);
+        return view('сontact_update',['data' => $contact->find($id)]);
         //  dd($contact = Contact_new::all());
     }
 }
