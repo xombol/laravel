@@ -115,6 +115,8 @@
       <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/graham-campbell/result-type" />
       <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/laravel/breeze" />
+      <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/livewire/livewire" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

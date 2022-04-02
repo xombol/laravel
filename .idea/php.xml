@@ -109,6 +109,8 @@
       <path value="$PROJECT_DIR$/lara_main/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/lara_main/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/lara_main/vendor/composer" />
+      <path value="$PROJECT_DIR$/lara_main/vendor/laravel/breeze" />
+      <path value="$PROJECT_DIR$/lara_main/vendor/livewire/livewire" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
