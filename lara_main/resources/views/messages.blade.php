@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="col-lg-3">
-                                <a href="{{ route('contact-data-one',$el->id) }}"><button class="btn btn-success">Детально </button></a>
+                                <a href="{{ route('contact-data-one',$el->id) }}"><button class="btn btn-outline-success">Детально </button></a>
                             </div>
                         </div>
                     </div>
@@ -44,13 +44,15 @@
     @if(empty($data[0]))
         <div class="row">
             <div class="col-lg-4">
-                <div class="alert alert-dark">
-                    <h4>Нету данных <span class="badge badge-secondary"></span></h4>
+                <div class="alert ">
+                <h5><p class="text-danger">Нету данных </p></h5>
                 </div>
             </div>
         </div>
     @endif
 @endsection
+
+
 
 @section('sidebar_template')
     @parent
