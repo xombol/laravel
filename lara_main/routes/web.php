@@ -35,12 +35,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 Route::middleware('auth')->group(function () {
-
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
 
 
     Route::get('/about', function () {
@@ -58,3 +57,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/contact/all/{id}/update/','ContactController@contactUpdatePost')->name('contact-update-submit');
 
 });
+
+Route::get('/admin/login', function () {
+    return view('admin_dir/login_admin');
+})->name('login_admin');
+
+Route::get('/user/login', function () {
+    return view('admin_dir/login_user');
+})->name('login_user');
+

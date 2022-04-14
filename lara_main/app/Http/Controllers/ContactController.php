@@ -28,7 +28,7 @@ class ContactController extends Controller {
 
         $contact->save();
         $contact_history->save();
-        return redirect()->route('home')->with('success','Сообщение было давлено');
+        return redirect()->route('contact-data')->with('success','Сообщение было давлено');
     }
     // Изменение записи в базе данных!
     public function contactUpdatePost($id, ContactRequest $reg) {
