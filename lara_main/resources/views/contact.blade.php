@@ -6,7 +6,7 @@
 
     <form action="{{ route('contact-form') }}" method="post">
         @csrf
-        <input type="hidden" name="admin" value="{{ Auth::user()->name }}">
+        <input type="hidden" name="admin" value="">
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">

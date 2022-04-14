@@ -4,7 +4,7 @@
     <h1>Reg admin</h1>
 
 
-    <form action="" method="post">
+    <form action="{{ route('user-submit') }}" method="post">
         @csrf
 
         <div class="input-group mb-3">

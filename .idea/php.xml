@@ -111,6 +111,7 @@
       <path value="$PROJECT_DIR$/lara_main/vendor/composer" />
       <path value="$PROJECT_DIR$/lara_main/vendor/laravel/breeze" />
       <path value="$PROJECT_DIR$/lara_main/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/lara_main/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

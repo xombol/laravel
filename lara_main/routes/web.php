@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
+use App\Http\Controllers\RolesUsersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,23 +44,30 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 
 
-    Route::get('/about', function () {
-        return view('about');
-    })->name('about');
-    Route::get('/contact', function () {
-        return view('contact');
-    })->name('contact');
-    Route::post('/contact/submit', 'ContactController@submit')->name('contact-form');
-
-    Route::get('/contact/all' ,'ContactController@allData')->name('contact-data');
-    Route::get('/contact/all/{id}','ContactController@showOneMessage')->name('contact-data-one');
-    Route::get('/contact/all/{id}/update/','ContactController@contactUpdate')->name('contact-update');
-    Route::get('/contact/all/{id}/delete/','ContactController@contactDelete')->name('contact-delete');
-    Route::post('/contact/all/{id}/update/','ContactController@contactUpdatePost')->name('contact-update-submit');
 
 });
 
-Route::get('/admin/register', function () {
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::post('/contact/submit', 'ContactController@submit')->name('contact-form');
+
+Route::get('/contact/all' ,'ContactController@allData')->name('contact-data');
+Route::get('/contact/all/{id}','ContactController@showOneMessage')->name('contact-data-one');
+Route::get('/contact/all/{id}/update/','ContactController@contactUpdate')->name('contact-update');
+Route::get('/contact/all/{id}/delete/','ContactController@contactDelete')->name('contact-delete');
+Route::post('/contact/all/{id}/update/','ContactController@contactUpdatePost')->name('contact-update-submit');
+
+// все роуты для админа
+Route::get('/admin/register/', function () {return view('admin_dir/reg_admin');} )->name('admin_reg');
+Route::post('/admin/register/submit', 'RolesUsersController@submit')->name('user-submit');
+
+
+
+Route::get('/admin/register_old', function () {
     return view('admin_dir/reg_admin');
 });
 
@@ -73,4 +82,7 @@ Route::get('/admin/login', function () {
 Route::get('/user/login', function () {
     return view('admin_dir/login_user');
 });
+
+
+
 

@@ -117,6 +117,7 @@
       <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/laravel/breeze" />
       <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/livewire/livewire" />
+      <excludeFolder url="file://$MODULE_DIR$/lara_main/vendor/spatie/laravel-permission" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
