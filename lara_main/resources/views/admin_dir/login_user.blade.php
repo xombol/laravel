@@ -30,15 +30,9 @@
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Post</span>
+                <span class="input-group-text" id="basic-addon1">Password</span>
             </div>
-            <select name="post" class="form-control">
-                <option value="manager" selected>manager</option>
-                <option value="seo">seo</option>
-                <option value="textwriter">textwriter</option>
-                <option value="SUB ADMIN">SUB ADMIN</option>
-            </select>
-
+            <input type="text" name="password" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
         <button type="submit" class="btn btn-success">Send</button>
