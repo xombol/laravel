@@ -58,11 +58,19 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::get('/admin/register', function () {
+    return view('admin_dir/reg_admin');
+});
+
+Route::get('/user/register', function () {
+    return view('admin_dir/reg_user');
+});
+
 Route::get('/admin/login', function () {
     return view('admin_dir/login_admin');
-})->name('login_admin');
+});
 
 Route::get('/user/login', function () {
     return view('admin_dir/login_user');
-})->name('login_user');
+});
 
