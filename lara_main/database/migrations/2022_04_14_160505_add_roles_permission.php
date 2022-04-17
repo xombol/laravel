@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Spatie\Permission\Models\Role;
+
 
 class AddRolesPermission extends Migration
 {
@@ -13,9 +15,12 @@ class AddRolesPermission extends Migration
      */
     public function up()
     {
-        Role::create('admin');
-        Role::create('user');
+        Role::create(['name' => 'admin']);
+        Role::create(['name' => 'user']);
     }
+
+
+
 
     /**
      * Reverse the migrations.
@@ -27,3 +32,4 @@ class AddRolesPermission extends Migration
         //
     }
 }
+ /*asdasda */

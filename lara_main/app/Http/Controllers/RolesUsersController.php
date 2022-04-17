@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Http\Requests\UserRequest;
-use App\Models\UserLara;
 
 class RolesUsersController extends Controller {
 
@@ -12,13 +11,13 @@ class RolesUsersController extends Controller {
         $user = new User();
         $user->login = $reg->input('login');
         $user->name = $reg->input('name');
-        $user->password = $reg->input('password');
-        $user->role = 'admin';
+        $user->password = bcrypt($reg->input('password'));
+        $user->assignRole('admin');
 
         $user->save();
 
         return redirect()
-            ->route('admin_reg')
+            ->route('admin.register')
             ->with('success','Пользователь был успешно добавлен!');
     }
 

@@ -1,14 +1,14 @@
 @extends('layouts.main_template')
 @section('title_page')Contact @endsection
 @section('content')
-    <h1>Login user</h1>
+    <h1>User login</h1>
 
 
     <form action="" method="post">
         @csrf
 
 
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 11">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Login</span>
             </div>

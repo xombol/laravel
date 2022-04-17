@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
+
 use App\Http\Controllers\RolesUsersController;
 
 
@@ -43,7 +44,6 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
-
 });
 
 Route::get('/about', function () {
@@ -61,28 +61,31 @@ Route::get('/contact/all/{id}/delete/', 'ContactController@contactDelete')->name
 Route::post('/contact/all/{id}/update/', 'ContactController@contactUpdatePost')->name('contact-update-submit');
 
 // все роуты для админа
-Route::get('/admin/register/', function () {
-    return view('admin_dir/reg_admin');
-})->name('admin_reg');
+Route::prefix('admin')
+    ->name('admin.')
+    ->group(function () {
 
-Route::post('/admin/register/submit', [RolesUsersController::class, 'submit'])->name('user-submit');
+         Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class,'index'])->name('login.index');
+         Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class,'login'])->name('login');
 
+         Route::get('/register', [\App\Http\Controllers\Admin\RegisterController::class,'index'])->name('register.index');
+         Route::post('/register', [\App\Http\Controllers\Admin\RegisterController::class,'register'])->name('register');
 
-Route::get('/admin/register_old', function () {
-    return view('admin_dir/reg_admin');
-});
+    });
 
-Route::get('/user/register', function () {
-    return view('admin_dir/reg_user');
-});
+// все роуты для админа
+Route::prefix('user')
+    ->name('user.')
+    ->group(function () {
 
-Route::get('/admin/login', function () {
-    return view('admin_dir/login_admin');
-});
+        Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class,'index_user'])->name('user.login.index');
+        Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class,'login_user'])->name('user.login');
 
-Route::get('/user/login', function () {
-    return view('admin_dir/login_user');
-});
+        Route::get('/register', [\App\Http\Controllers\Admin\RegisterController::class,'index_user'])->name('user.register.index');
+        Route::post('/register', [\App\Http\Controllers\Admin\RegisterController::class,'register_user'])->name('user.register');
+
+    });
+
 
 
 
