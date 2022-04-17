@@ -1,4 +1,4 @@
-@extends('layouts.main_template')
+@extends('layouts.auth')
 @section('title_page')Contact @endsection
 @section('content')
     <h1>Reg user</h1>
@@ -35,7 +35,7 @@
             <input type="text" name="password" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
-        <button type="submit" class="btn btn-success">Send</button>
+        <button type="submit" class="btn btn-success" style="margin-left: auto;width: 129px;display: block;">Send</button>
 
 
 

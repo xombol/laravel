@@ -65,6 +65,8 @@ Route::prefix('admin')
     ->name('admin.')
     ->group(function () {
 
+        Route::get('/', function () { return redirect('admin/login');});
+
          Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class,'index'])->name('login.index');
          Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class,'login'])->name('login');
 
@@ -77,6 +79,8 @@ Route::prefix('admin')
 Route::prefix('user')
     ->name('user.')
     ->group(function () {
+
+        Route::get('/', function () { return redirect('user/login');});
 
         Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class,'index_user'])->name('user.login.index');
         Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class,'login_user'])->name('user.login');

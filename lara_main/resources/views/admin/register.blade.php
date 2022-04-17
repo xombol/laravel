@@ -1,7 +1,7 @@
-@extends('layouts.main_template')
+@extends('layouts.auth')
 @section('title_page')Contact @endsection
 @section('content')
-    <h1>Reg admin</h1>
+    <h1 class="display-1">Reg admin</h1> <br>
 
 
     <form action="{{ route('admin.register') }}" method="post">
@@ -29,7 +29,7 @@
             {!! Form::password('password',['class' => 'form-control']) !!}
         </div>
 
-        <button type="submit" class="btn btn-success">Send</button>
+        <button type="submit" class="btn btn-success" style="margin-left: auto;width: 129px;display: block;">Send</button>
 
     </form>
 @endsection

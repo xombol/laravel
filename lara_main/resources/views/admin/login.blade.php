@@ -1,13 +1,13 @@
- @extends('layouts.main_template')
+ @extends('layouts.auth')
 @section('title_page')Contact @endsection
 @section('content')
-    <h1>Login admin</h1>
+    <h1 class="display-1">Login admin</h1>
 
 
     <form action="" method="post">
         @csrf
 
-
+<br>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Login</span>
@@ -22,7 +22,7 @@
             {!! Form::password('password',['class' => 'form-control']) !!}
         </div>
 
-        <button type="submit" class="btn btn-success">Login</button>
+        <button type="submit" class="btn btn-success" style="margin-left: auto;width: 129px;display: block;">Login</button>
 
 
 
