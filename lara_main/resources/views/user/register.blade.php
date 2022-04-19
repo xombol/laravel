@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 @section('title_page')Contact @endsection
 @section('content')
-    <h1>Reg user</h1>
+    <h1 class="display-1">Reg user</h1>
 
 
     <form action="" method="post">
@@ -35,7 +35,10 @@
             <input type="text" name="password" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
-        <button type="submit" class="btn btn-success" style="margin-left: auto;width: 129px;display: block;">Send</button>
+        <div class="d-flex justify-content-between">
+            <a href="{{ route('user.user.login.index') }}" class="btn btn-outline-primary">Login</a>
+            <button type="submit" class="btn btn-success" >Register</button>
+        </div>
 
 
 

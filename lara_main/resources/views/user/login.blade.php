@@ -22,7 +22,10 @@
             <input type="text" name="password" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
-        <button type="submit" class="btn btn-success" style="margin-left: auto;width: 129px;display: block;">Login</button>
+        <div class="d-flex justify-content-between">
+            <a href="{{ route('user.user.register.index') }}" class="btn btn-outline-primary">Register</a>
+            <button type="submit" class="btn btn-success" >Login</button>
+        </div>
 
 
 

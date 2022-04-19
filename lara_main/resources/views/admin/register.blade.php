@@ -29,8 +29,11 @@
             {!! Form::password('password',['class' => 'form-control']) !!}
         </div>
 
-        <button type="submit" class="btn btn-success" style="margin-left: auto;width: 129px;display: block;">Send</button>
 
+        <div class="d-flex justify-content-between">
+            <a href="{{ route('admin.login.index') }}" class="btn btn-outline-primary">Login</a>
+            <button type="submit" class="btn btn-success" >Register</button>
+        </div>
     </form>
 @endsection
 

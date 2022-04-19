@@ -32,7 +32,7 @@ class RegisterController extends Controller {
     }
     public function index_user()
     {
-        return view('admin.register');
+        return view('user.register');
     }
     public function register_user(RegisterRequest $request)
     {

@@ -4,7 +4,7 @@
     <h1 class="display-1">Login admin</h1>
 
 
-    <form action="" method="post">
+    <form action="{{ route('admin.login') }}" method="post">
         @csrf
 
 <br>
@@ -21,13 +21,15 @@
             </div>
             {!! Form::password('password',['class' => 'form-control']) !!}
         </div>
-
-        <button type="submit" class="btn btn-success" style="margin-left: auto;width: 129px;display: block;">Login</button>
-
-
-
+        <div class="d-flex justify-content-between">
+            <a href="{{ route('admin.register.index') }}" class="btn btn-outline-primary">Register</a>
+            <button type="submit" class="btn btn-success" >Login</button>
+        </div>
 
     </form>
+
+
+
 @endsection
 
 @section('sidebar_template')
