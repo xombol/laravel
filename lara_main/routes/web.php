@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\RolesUsersController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,20 +61,7 @@ Route::get('/contact/all/{id}/update/', 'ContactController@contactUpdate')->name
 Route::get('/contact/all/{id}/delete/', 'ContactController@contactDelete')->name('contact-delete');
 Route::post('/contact/all/{id}/update/', 'ContactController@contactUpdatePost')->name('contact-update-submit');
 
-// все роуты для админа
-Route::prefix('admin')
-    ->name('admin.')
-    ->group(function () {
 
-        Route::get('/', function () { return redirect('admin/login');});
-
-         Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class,'index'])->name('login.index');
-         Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class,'login'])->name('login');
-
-         Route::get('/register', [\App\Http\Controllers\Admin\RegisterController::class,'index'])->name('register.index');
-         Route::post('/register', [\App\Http\Controllers\Admin\RegisterController::class,'register'])->name('register');
-
-    });
 
 // все роуты для админа
 Route::prefix('user')
@@ -81,14 +69,18 @@ Route::prefix('user')
     ->group(function () {
 
         Route::get('/', function () { return redirect('user/login');});
-
         Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class,'index_user'])->name('user.login.index');
         Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class,'login_user'])->name('user.login');
 
         Route::get('/register', [\App\Http\Controllers\Admin\RegisterController::class,'index_user'])->name('user.register.index');
         Route::post('/register', [\App\Http\Controllers\Admin\RegisterController::class,'register_user'])->name('user.register');
 
+
+
     });
+
+
+
 
 
 

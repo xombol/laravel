@@ -12,7 +12,9 @@ class LoginController extends Controller {
 
     public function index()
     {
-
+        if(Auth::check() ) {
+            return redirect()->route('admin.index');
+        }
         return view('admin.login');
     }
     public function login(Request $request)
@@ -25,7 +27,7 @@ class LoginController extends Controller {
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('dashboard');
+            return redirect()->route('admin.index');
         }
 
         return back()->withErrors([
@@ -57,5 +59,14 @@ class LoginController extends Controller {
 
     }
 
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
 
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
