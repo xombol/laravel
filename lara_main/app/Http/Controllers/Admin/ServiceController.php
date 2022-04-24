@@ -15,10 +15,30 @@ class ServiceController extends Controller
         return view('admin.service.roofs',['data' => $roof->all()]);
     }
 
+    public function roofs_index()
+    {
+        $roof = new Roof();
+        return view('user.roofs',['data' => $roof->all()]);
+    }
+
+    public function roof_detail($id)
+    {
+        $roof = new Roof();
+        $img_find = $roof->find($id);
+        $url = Storage::url($img_find->img);
+
+        return view('user.roof_detail',['data' => $roof->find($id),'img'=> $url]);
+    }
+
     public function roofDetail($id)
     {
         $roof = new Roof();
-        return view('admin.service.roof_detail',['data' => $roof->find($id)]);
+        $img_find = $roof->find($id);
+        $url = Storage::url($img_find->img);
+        $url2 = Storage::url($img_find->img2);
+        $url3 = Storage::url($img_find->img3);
+
+        return view('admin.service.roof_detail',['data' => $roof->find($id),'img'=> $url,'img2'=> $url2,'img3'=> $url3]);
     }
 
     public function updateRoof($id, ServiceRequest $reg)
@@ -27,17 +47,29 @@ class ServiceController extends Controller
 
         $roof->name = $reg->input('name');
 
+/*
+        foreach($reg->file(‘images’, []) as $file) {
+
+        }
 
 
         $file = Storage::putFile('avatars', $reg->file('image'));
-        $roof->img = $file;
-        /*
-        $file2 = $reg->file($file);
-        $name = $file2->getClientOriginalName();*/
-
-        // $url = Storage::url('file.jpg'); тут и сам путь к файлу
-
-
+        if(!$file){
+            $roof->img = $file;
+        }
+        $file2 = Storage::putFile('avatars', $reg->file('image2'));
+        if($file){
+            $roof->img2 = $file2;
+        }
+        $file3 = Storage::putFile('avatars', $reg->file('image3'));
+        if($file){
+            $roof->img3 = $file3;
+        }
+*/
+       // dd($reg->file('image'));
+        foreach($reg->file("image", []) as $key => $file) {
+            $roof->{$key} = Storage:: putFile('avatars', $file);
+        }
 
         $roof->osn_par1 = $reg->input('osn_par1');
         $roof->osn_par2 = $reg->input('osn_par2');
@@ -53,6 +85,7 @@ class ServiceController extends Controller
         $roof->status = $reg->input('status');
 
         $roof->save();
+
         return redirect()->route('admin.roof', $id)->with('success','Сообщение было обновлено');
     }
 

@@ -29,7 +29,7 @@
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend d-flex">
-                            <span class="input-group-text" id="basic-addon1">Длина основания D</span>
+                            <span class="input-group-text" id="basic-addon1">Длина основания B</span>
                         </div>
                         <input type="text" value="{{$data->osn_par2}}" name="osn_par2" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
                         <div class="input-group-prepend d-flex">
@@ -40,7 +40,7 @@
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend d-flex">
-                            <span class="input-group-text" id="basic-addon1">Высота подъема B</span>
+                            <span class="input-group-text" id="basic-addon1">Высота подъема C</span>
                         </div>
                         <input type="text" value="{{$data->osn_par3}}" name="osn_par3" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
                         <div class="input-group-prepend d-flex">
@@ -51,7 +51,7 @@
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend d-flex">
-                            <span class="input-group-text" id="basic-addon1">Длина свеса C</span>
+                            <span class="input-group-text" id="basic-addon1">Длина свеса D</span>
                         </div>
                         <input type="text" value="{{$data->osn_par4}}" name="osn_par4" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
                         <div class="input-group-prepend d-flex">
@@ -145,7 +145,15 @@
                         <div class="form-group">
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile" name="image">
+                                <input type="file" class="custom-file-input" id="customFile" name="image[img]">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="image[img2]">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="image[img3]">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                         </div>
@@ -153,7 +161,18 @@
                     </div>
 
                 </div>
-                <img src="/{{asset($data->img) }}" alt="">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="{{ asset($img) }}" alt="">
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="{{ asset($img2) }}" alt="">
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="{{ asset($img3) }}" alt="">
+                    </div>
+                </div>
+
 
             </div>
 

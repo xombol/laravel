@@ -2,6 +2,7 @@
     background: rgb(2,0,36);
     background: linear-gradient(38deg, rgba(2,0,36,1) 0%, rgb(0 0 0) 35%, rgb(110 0 255) 100%);
     padding-bottom: 120px;
+
     font-family: 'Source Sans Pro', sans-serif;
     display: flex;
     flex-direction: column;
@@ -14,7 +15,7 @@
   }
 }
 .header-blue {
-    height: 100vh;
+    height: 50px;
     display: flex;
     justify-content: space-between;
 }

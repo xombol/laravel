@@ -1,33 +1,37 @@
-
-
-<div class="">
+<div class="mb-5" >
     <div class="header-blue ">
-    <div class="container d-flex justify-content-between pt-5">
-        <div class="display-4 text-light"><h1>Griz</h1></div>
-        <div class="">
-            <div class="dropdown">
-                <button class="btn btn-default btn-lg action-button border border-primary rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+        <div class="container d-flex justify-content-between pt-5">
+            <div class="display-4 text-light"><h1>Griz</h1></div>
+            <div class="">
+                <div class="dropdown">
+                    <a href="{{route('home')}}" class="btn btn-default btn-lg action-button border border-primary rounded mr-3" >
+                        Home
+                    </a>
+                    <button class="btn btn-default btn-lg action-button border border-primary rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </button>
+
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{route('roofs.index')}}">ROOFS</a>
+                    </div>
+
                 </div>
             </div>
+            <div class="">
+                <a href="{{ route('user.user.login.index') }}" class="btn btn-default btn-lg action-button border border-success text-success mr-3 bg-green text-light" style="background: #28a745;" >Log in</a>
+                <a href="{{ route('user.user.register.index') }}" class="btn btn-default btn-lg action-button border border-light ">Register</a>
+            </div>
         </div>
-        <div class="">
-            <a href="{{ route('user.user.login.index') }}" class="btn btn-default btn-lg action-button border border-success text-success mr-3 bg-green text-light" style="background: #28a745;" >Log in</a>
-            <a href="{{ route('user.user.register.index') }}" class="btn btn-default btn-lg action-button border border-light ">Register</a>
+        @if(Request::is('/'))
+        <div class="mt-5">
+            <div class="mt-3" id="inTurnBlurringTextG">
+                <div id="inTurnBlurringTextG_1" class="inTurnBlurringTextG">H</div>
+                <div id="inTurnBlurringTextG_2" class="inTurnBlurringTextG">E</div>
+                <div id="inTurnBlurringTextG_3" class="inTurnBlurringTextG">L</div>
+                <div id="inTurnBlurringTextG_4" class="inTurnBlurringTextG">L</div>
+                <div id="inTurnBlurringTextG_5" class="inTurnBlurringTextG">O</div>
+            </div>
         </div>
-    </div>
-
-     <div class="mt-5">
-         <div class="mt-3" id="inTurnBlurringTextG"><div id="inTurnBlurringTextG_1" class="inTurnBlurringTextG">H</div><div id="inTurnBlurringTextG_2" class="inTurnBlurringTextG">E</div><div id="inTurnBlurringTextG_3" class="inTurnBlurringTextG">L</div><div id="inTurnBlurringTextG_4" class="inTurnBlurringTextG">L</div><div id="inTurnBlurringTextG_5" class="inTurnBlurringTextG">O</div></div>
-     </div>
-
-
-
         <div class="container hero margin">
             <div class="row d-flex justify-content-between">
                 <div class="col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-0">
@@ -42,6 +46,14 @@
                 </div>
             </div>
         </div>
+            <style>
+                .header-blue {
+                    height: 100vh!important;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            </style>
+        @endif
     </div>
 </div>
 
@@ -80,7 +92,7 @@
 
             @if (Route::has('login'))
                 @auth
-                  <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('contact') }}">New user</a>
+                    <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('contact') }}">New user</a>
                 @endauth
             @endif
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('contact-data') }}">Users</a>

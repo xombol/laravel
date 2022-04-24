@@ -16,7 +16,10 @@ class CreateRoofsTable extends Migration
         Schema::create('roofs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
             $table->string('img');
+            $table->string('img2');
+            $table->string('img3');
 
             $table->string('osn_par1');
             $table->string('osn_par2');

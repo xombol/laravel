@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\ServiceController;
 
 
 use App\Http\Controllers\RolesUsersController;
@@ -61,10 +62,18 @@ Route::get('/contact/all/{id}/update/', 'ContactController@contactUpdate')->name
 Route::get('/contact/all/{id}/delete/', 'ContactController@contactDelete')->name('contact-delete');
 Route::post('/contact/all/{id}/update/', 'ContactController@contactUpdatePost')->name('contact-update-submit');
 
+
+
+
 Route::get('/roof', function () {
     return view('user.roof_detail');
 })->name('roof');
 
+/*
+ *
+ *  WEB
+ *
+*/
 
 // все роуты для админа
 Route::prefix('user')
@@ -80,7 +89,11 @@ Route::prefix('user')
 
 
 
+
     });
+
+Route::get('/roofs', [\App\Http\Controllers\Admin\ServiceController::class,'roofs_index'])->name('roofs.index');
+Route::get('/roofs/{id}/', [\App\Http\Controllers\Admin\ServiceController::class,'roof_detail'])->name('roof.detail');
 
 
 

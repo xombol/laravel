@@ -1,7 +1,7 @@
 @extends('layouts.main_template')
 @section('title_page', 'Расчёт односкатной крыши')
 @section('content')
-    <h1>Расчёт односкатной крыши </h1>
+    <h1>{{$data->name}}</h1>
 <div class="row">
    <div class="col-lg-4">
        <div  class="list-group-item list-group-item-action flex-column align-items-start">
@@ -10,18 +10,7 @@
            <div class="input-group-prepend d-flex">
                <span class="input-group-text" id="basic-addon1">Ширина основания A</span>
            </div>
-           <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-           <div class="input-group-prepend d-flex">
-               <button class="btn btn-outline-secondary " type="button">+</button>
-               <button class="btn btn-outline-secondary" type="button">-</button>
-           </div>
-       </div>
-
-       <div class="input-group mb-3">
-           <div class="input-group-prepend d-flex">
-               <span class="input-group-text" id="basic-addon1">Длина основания D</span>
-           </div>
-           <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+           <input type="text" class="form-control" id="sh_1" aria-describedby="basic-addon1" value="{{$data->osn_par1}}">
            <div class="input-group-prepend d-flex">
                <button class="btn btn-outline-secondary " type="button">+</button>
                <button class="btn btn-outline-secondary" type="button">-</button>
@@ -32,7 +21,7 @@
            <div class="input-group-prepend d-flex">
                <span class="input-group-text" id="basic-addon1">Высота подъема B</span>
            </div>
-           <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+           <input type="text" class="form-control" id="sh_2"  aria-describedby="basic-addon1" value="{{$data->osn_par2}}">
            <div class="input-group-prepend d-flex">
                <button class="btn btn-outline-secondary " type="button">+</button>
                <button class="btn btn-outline-secondary" type="button">-</button>
@@ -41,9 +30,20 @@
 
        <div class="input-group mb-3">
            <div class="input-group-prepend d-flex">
-               <span class="input-group-text" id="basic-addon1">Длина свеса C</span>
+               <span class="input-group-text" id="basic-addon1">Длина свеса  C</span>
            </div>
-           <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+           <input type="text" class="form-control" id="sh_3"  aria-describedby="basic-addon1" value="{{$data->osn_par3}}">
+           <div class="input-group-prepend d-flex">
+               <button class="btn btn-outline-secondary " type="button">+</button>
+               <button class="btn btn-outline-secondary" type="button">-</button>
+           </div>
+       </div>
+
+       <div class="input-group mb-3">
+           <div class="input-group-prepend d-flex">
+               <span class="input-group-text" id="basic-addon1">Длина свеса D</span>
+           </div>
+           <input type="text" class="form-control" id="sh_4"  aria-describedby="basic-addon1" value="{{$data->osn_par4}}">
            <div class="input-group-prepend d-flex">
                <button class="btn btn-outline-secondary " type="button">+</button>
                <button class="btn btn-outline-secondary" type="button">-</button>
@@ -59,7 +59,7 @@
                <div class="input-group-prepend d-flex">
                    <span class="input-group-text" id="basic-addon1">Шаг стропил</span>
                </div>
-               <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+               <input type="text" class="form-control" id="strop_sh" aria-describedby="basic-addon1" value="{{$data->strop_par1}}">
                <div class="input-group-prepend d-flex">
                    <button class="btn btn-outline-secondary " type="button">+</button>
                    <button class="btn btn-outline-secondary" type="button">-</button>
@@ -71,7 +71,7 @@
                    <span class="input-group-text" id="basic-addon1">Длина свеса C </span>
                </div>
                <select class="custom-select form-control" id="inputGroupSelect01">
-                   <option value="1" selected>1</option>
+                   <option value="1"  selected>1</option>
                    <option value="2">2</option>
                    <option value="3">3</option>
                </select>
@@ -86,7 +86,7 @@
                <div class="input-group-prepend d-flex">
                    <span class="input-group-text" id="basic-addon1">Ширина доски <br> обрешетки</span>
                </div>
-               <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+               <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value="{{$data->obres_par1}}">
                <div class="input-group-prepend d-flex">
                    <button class="btn btn-outline-secondary " type="button">+</button>
                    <button class="btn btn-outline-secondary" type="button">-</button>
@@ -97,7 +97,7 @@
                <div class="input-group-prepend d-flex">
                    <span class="input-group-text" id="basic-addon1">Толщина доски <br>  обрешетки</span>
                </div>
-               <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+               <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value="{{$data->obres_par2}}">
                <div class="input-group-prepend d-flex">
                    <button class="btn btn-outline-secondary " type="button">+</button>
                    <button class="btn btn-outline-secondary" type="button">-</button>
@@ -108,7 +108,7 @@
                <div class="input-group-prepend d-flex">
                    <span class="input-group-text" id="basic-addon1">Расстояние между <br> досками обрешетки</span>
                </div>
-               <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+               <input type="text" class="form-control" id="rast_dosk" aria-describedby="basic-addon1" value="{{$data->obres_par3}}">
                <div class="input-group-prepend d-flex">
                    <button class="btn btn-outline-secondary " type="button">+</button>
                    <button class="btn btn-outline-secondary" type="button">-</button>
@@ -119,7 +119,7 @@
 
        </div>
         <br>
-       <button type="button" class="btn btn-outline-success btn-lg btn-block" style="width: 100%;">Рассчитать</button>
+       <input type="button" id="btn_roof" class="btn btn-outline-success btn-lg btn-block" value="Рассчитать" data-page="{{$data->id}}" style="width: 100%;">
 
 
    </div>
@@ -129,7 +129,18 @@
 
 
     <div class="col-lg-12">
-        <div id="calc_result"><h2>Расчеты</h2>
+
+        <div id="calc_result">
+            <div class="row">
+                <div class="col-lg-6">
+                    <canvas id="myCanvas" width="600" height="600"></canvas>
+                </div>
+                <div class="col-lg-6">
+                    <canvas id="myCanvas2" width="599" height="599"></canvas>
+                </div>
+            </div>
+
+            <h2>Расчеты</h2>
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="text-align: left;">
 
 
@@ -137,14 +148,13 @@
                     </td><td>
                     </td><td>
                     </td></tr>
-
                 <tr><td>
-                        Угол наклона крыши <br> <span class="green"> Угол наклона подходит для данного материала.</span></td> <td><b>18.43</b></td> <td> градусов
+                        Угол наклона крыши <br> <span class="green"> Угол наклона подходит для данного материала.</span></td> <td><b id="ugol_naklona">18.43</b></td> <td> градусов
                     </td></tr>
 
 
                 <tr><td>
-                        Площадь поверхности крыши</td> <td><b>33.3</b></td> <td> м2
+                        Площадь поверхности крыши</td> <td><b id="area" >33.3</b></td> <td> м2
                     </td></tr>
 
                 <tr><td>
@@ -153,7 +163,7 @@
 
 
                 <tr><td>
-                        Количество рубероида с нахлестом 10%</td> <td><b>2.4</b></td> <td> рулонов
+                        Количество рубероида с нахлестом 10%</td> <td><b id="count_area">2.4</b></td> <td> рулонов
                     </td></tr>
 
                 <tr><td><b>Стропила</b></td><td>
@@ -161,7 +171,7 @@
                     </td></tr>
 
                 <tr><td>
-                        Длина стропил</td> <td><b>416</b></td> <td> см
+                        Длина стропил</td> <td><b id="dlina_stripol">416</b></td> <td> см
                     </td></tr>
 
 
@@ -172,7 +182,7 @@
                         Минимальное сечение стропил при шаге 60 см. <br>и длине 316 см. в пролете  <br> (Для региона со снеговой нагрузкой 153 кг/м2) </td> <td><b>40 x 150     </b></td> <td> мм
                     </td></tr>
                 <tr><td>
-                        Количество стропил</td> <td><b>15</b></td> <td> шт
+                        Количество стропил</td> <td><b id="dlina_stripol">15</b></td> <td> шт
                     </td></tr>
                 <tr><td>
                         Объем бруса для стропил</td> <td><b>0.37</b></td> <td> м3
@@ -186,7 +196,7 @@
                     </td><td>
                     </td></tr>
                 <tr><td>
-                        Количество рядов обрешетки</td> <td><b>10</b></td> <td> рядов
+                        Количество рядов обрешетки</td> <td><b id="count_st">10</b></td> <td> рядов
                     </td></tr>
 
                 <tr><td>
@@ -219,10 +229,10 @@
 
 
 </div>
-<span class="submit_button"><input type="submit" class="submit" value="Распечатать" onclick="Load()"></span> </span></div>
+</div>
     </div>
 
-</div>
+
 
 
 
