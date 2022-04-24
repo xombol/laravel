@@ -43,7 +43,7 @@
 
                 <li class="nav-header">Расчёты</li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{route('admin.roof')}}" class="nav-link {{request()->routeIs(['admin.roof','admin.roof.*'])? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Расчёт крыши </p>
                             </a>

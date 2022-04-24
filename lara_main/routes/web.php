@@ -61,6 +61,9 @@ Route::get('/contact/all/{id}/update/', 'ContactController@contactUpdate')->name
 Route::get('/contact/all/{id}/delete/', 'ContactController@contactDelete')->name('contact-delete');
 Route::post('/contact/all/{id}/update/', 'ContactController@contactUpdatePost')->name('contact-update-submit');
 
+Route::get('/roof', function () {
+    return view('user.roof_detail');
+})->name('roof');
 
 
 // все роуты для админа

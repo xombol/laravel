@@ -38,6 +38,13 @@
                                 <td>{{$user->ip}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->created_at}}</td>
+                                <th>    <a href="#"
+                                           title="Удалить"
+                                           class="btn-block c-modal-destroy"
+                                           data-route=""
+                                           data-body="Вы действительно хотите удалить запись: ''?">
+                                        <span class="fa fa-trash color-red"></span> Удалить
+                                    </a></th>
                             </tr>
                         @endforeach
                         </tbody>
@@ -55,13 +62,7 @@
         </div>
     </div>
 
-    <a href="#"
-       title="Удалить"
-       class="btn-block c-modal-destroy"
-       data-route=""
-       data-body="Вы действительно хотите удалить запись: ''?">
-        <span class="fa fa-trash color-red"></span> Удалить
-    </a>
+
 
     <div class="modal fade modal-danger in" id="modal-destroy" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
