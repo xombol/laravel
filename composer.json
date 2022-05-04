@@ -1,6 +1,0 @@
-{
-    "require": {
-        "laravel/breeze": "^1.9",
-        "spatie/laravel-permission": "^5.5"
-    }
-}
