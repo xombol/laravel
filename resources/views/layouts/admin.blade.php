@@ -42,11 +42,14 @@
 
     <script src="{{asset('/dist/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-    <script src="{{asset('/dist/js/adminlte.js?v=3.2.0')}}"></script>
+    <script src="{{asset('/dist/js/adminlte.min.js')}}"></script>
 
     <script src="{{asset('/dist/plugins/chart.js/Chart.min.js')}}"></script>
 
     <script src="{{asset('/dist/js/pages/dashboard3.js')}}"></script>
+    <script src="{{asset('/js/demo.js')}}"></script>
+    <script src="{{asset('/js/pages/dashboard.js')}}"></script>
+    <script src="{{asset('/js/pages/dashboard2.js')}}"></script>
 </footer>
 
 </body>

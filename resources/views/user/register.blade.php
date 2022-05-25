@@ -36,7 +36,7 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <a href="{{ route('user.user.login.index') }}" class="btn btn-outline-primary">Login</a>
+            <a href="{{ route('user.login.index') }}" class="btn btn-outline-primary">Login</a>
             <button type="submit" class="btn btn-success" >Register</button>
         </div>
 

@@ -1,8 +1,13 @@
 @extends('layouts.main_template')
 @section('title_page', 'Расчёт односкатной крыши')
 @section('content')
+
+
     <h1>{{$data->name}}</h1>
-<div class="row">
+
+    <form action="#" method="post" id="project_roof">
+       <!-- <input type="hidden" name="user__name" value=""> -->
+    <div class="row">
    <div class="col-lg-4">
        <div  class="list-group-item list-group-item-action flex-column align-items-start">
            <h4>Основные параметры</h4>
@@ -10,7 +15,7 @@
            <div class="input-group-prepend d-flex">
                <span class="input-group-text" id="basic-addon1">Ширина основания A</span>
            </div>
-           <input type="text" class="form-control" id="sh_1" aria-describedby="basic-addon1" value="{{$data->osn_par1}}">
+           <input type="text" class="form-control" name="shirina_ons" id="sh_1" aria-describedby="basic-addon1" value="{{$data->osn_par1}}">
            <div class="input-group-prepend d-flex">
                <button class="btn btn-outline-secondary " type="button">+</button>
                <button class="btn btn-outline-secondary" type="button">-</button>
@@ -21,7 +26,7 @@
            <div class="input-group-prepend d-flex">
                <span class="input-group-text" id="basic-addon1">Высота подъема B</span>
            </div>
-           <input type="text" class="form-control" id="sh_2"  aria-describedby="basic-addon1" value="{{$data->osn_par2}}">
+           <input type="text" class="form-control" name="visota_podema" id="sh_2"  aria-describedby="basic-addon1" value="{{$data->osn_par2}}">
            <div class="input-group-prepend d-flex">
                <button class="btn btn-outline-secondary " type="button">+</button>
                <button class="btn btn-outline-secondary" type="button">-</button>
@@ -32,7 +37,7 @@
            <div class="input-group-prepend d-flex">
                <span class="input-group-text" id="basic-addon1">Длина свеса  C</span>
            </div>
-           <input type="text" class="form-control" id="sh_3"  aria-describedby="basic-addon1" value="{{$data->osn_par3}}">
+           <input type="text" class="form-control" name="dlinna_svesa" id="sh_3"  aria-describedby="basic-addon1" value="{{$data->osn_par3}}">
            <div class="input-group-prepend d-flex">
                <button class="btn btn-outline-secondary " type="button">+</button>
                <button class="btn btn-outline-secondary" type="button">-</button>
@@ -41,9 +46,9 @@
 
        <div class="input-group mb-3">
            <div class="input-group-prepend d-flex">
-               <span class="input-group-text" id="basic-addon1">Длина свеса D</span>
+               <span class="input-group-text" id="basic-addon1">Длина стены D</span>
            </div>
-           <input type="text" class="form-control" id="sh_4"  aria-describedby="basic-addon1" value="{{$data->osn_par4}}">
+           <input type="text" class="form-control" name="dlinna_steni" id="sh_4"  aria-describedby="basic-addon1" value="{{$data->osn_par4}}">
            <div class="input-group-prepend d-flex">
                <button class="btn btn-outline-secondary " type="button">+</button>
                <button class="btn btn-outline-secondary" type="button">-</button>
@@ -59,7 +64,7 @@
                <div class="input-group-prepend d-flex">
                    <span class="input-group-text" id="basic-addon1">Шаг стропил</span>
                </div>
-               <input type="text" class="form-control" id="strop_sh" aria-describedby="basic-addon1" value="{{$data->strop_par1}}">
+               <input type="text" class="form-control" id="strop_sh" name="shag_stropil" aria-describedby="basic-addon1" value="{{$data->strop_par1}}">
                <div class="input-group-prepend d-flex">
                    <button class="btn btn-outline-secondary " type="button">+</button>
                    <button class="btn btn-outline-secondary" type="button">-</button>
@@ -106,7 +111,7 @@
            </div>
            <div class="input-group mb-3">
                <div class="input-group-prepend d-flex">
-                   <span class="input-group-text" id="basic-addon1">Расстояние между <br> досками обрешетки</span>
+                   <span class="input-group-text" name="rast_mej_doskami" id="basic-addon1">Расстояние между <br> досками обрешетки</span>
                </div>
                <input type="text" class="form-control" id="rast_dosk" aria-describedby="basic-addon1" value="{{$data->obres_par3}}">
                <div class="input-group-prepend d-flex">
@@ -122,13 +127,16 @@
        <input type="button" id="btn_roof" class="btn btn-outline-success btn-lg btn-block" value="Рассчитать" data-page="{{$data->id}}" style="width: 100%;">
 
 
+
    </div>
     <div class="col-lg-8">
-        <img src="https://stroy-calc.ru/img/oskr.jpg" alt="">
+        <div style="background: url('/storage/{{$data->img}}');width: 100%;height: 100%;background-size: cover;background-repeat: no-repeat;background-position: center;"></div>
     </div>
 
+</div>
 
-    <div class="col-lg-12">
+    <div class="row mt-5">
+    <div class="col-lg-12" >
 
         <div id="calc_result">
             <div class="row">
@@ -141,7 +149,24 @@
             </div>
 
             <h2>Расчеты</h2>
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="text-align: left;">
+            <table id="table_pdf"   width="100%" border="0" cellspacing="0" cellpadding="0" style="text-align: left; width: 100%!important">
+
+                <input type="hidden" name="roof_id" value="{{$data->id}}">
+
+                <input type="hidden" id="area_h" name="area">
+                <input type="hidden" id="count_area_h" name="count_area">
+                <input type="hidden" id="dlina_stripol_h" name="dlina_stripol">
+                <input type="hidden" id="count_st_h" name="count_st">
+
+                <input type="hidden" name="pr_ves_h" value="199.79">
+                <input type="hidden" name="min_sec" value="40 x 150">
+                <input type="hidden" name="objem_brusa" value="0.37">
+                <input type="hidden" name="prim_ves_br" value="172.32">
+                <input type="hidden" name="rast_mej_doskami" value="312">
+                <input type="hidden" name="kol_dosok_obr" value="17">
+                <input type="hidden" name="kol_dosok_obr" value="17">
+                <input type="hidden" name="area_dosok" value="0.32">
+                <input type="hidden" name="pr_ves_dosok" value="144.9">
 
 
                 <tbody><tr><td><b>Крыша</b>
@@ -173,11 +198,6 @@
                 <tr><td>
                         Длина стропил</td> <td><b id="dlina_stripol">416</b></td> <td> см
                     </td></tr>
-
-
-
-
-
                 <tr><td>
                         Минимальное сечение стропил при шаге 60 см. <br>и длине 316 см. в пролете  <br> (Для региона со снеговой нагрузкой 153 кг/м2) </td> <td><b>40 x 150     </b></td> <td> мм
                     </td></tr>
@@ -216,22 +236,20 @@
                 <tr><td>
                         Примерный вес досок обрешетки</td> <td><b>144.9</b></td> <td> кг
                     </td></tr>
-
-
-
-
-
-
                 </tbody></table>
 
 
 
-
-
+        <div class="btn-group mt-5">
+            <input type="button" id="btn_roof_pdf" class="btn btn-outline-danger  mr-5" value="PDF generate" data-page="{{$data->id}}" >
+            <input type="submit" id="btn_roof_save" class="btn btn-outline-success k" value="Save in profile" data-page="{{$data->id}}" >
+        </div>
 </div>
-</div>
+
+    </div>
     </div>
 
+    </form>
 
 
 

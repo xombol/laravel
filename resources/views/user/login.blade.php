@@ -12,7 +12,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Login</span>
             </div>
-            <input type="text" name="login" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" name="email" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
         <div class="input-group mb-3">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <a href="{{ route('user.user.register.index') }}" class="btn btn-outline-primary">Register</a>
+            <a href="{{ route('user.register.index') }}" class="btn btn-outline-primary">Register</a>
             <button type="submit" class="btn btn-success" >Login</button>
         </div>
 

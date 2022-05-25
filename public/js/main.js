@@ -7,6 +7,51 @@ $(document).ready ( function(){
            roof1();
        }
     });
+    $("#btn_roof_pdf").click(function() {
+        console.info('+');
+        let table = $('#table_pdf')[0].outerHTML;
+        var canvas = document.getElementById('myCanvas');
+        var dataURL = canvas.toDataURL();
+        var canvas2 = document.getElementById('myCanvas2');
+        var dataURL2 = canvas2.toDataURL();
+        console.log(table);
+        $.ajax({
+            url: '/roofs/1/pdf',
+            method: 'post',
+          //  dataType: 'html',
+            data: {text: table, canvas1: dataURL, canvas2: dataURL2 },
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function(response){
+                var blob = new Blob([response]);
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "Sample.pdf";
+                link.click();
+
+                console.log(blob);
+                console.log(link);
+                console.log(response);
+            },
+        });
+
+    });
+    $("#project_roof").submit(function(event) {
+        event.preventDefault();
+
+       let form = $(this);
+       console.info('start');
+        $.post({
+            url: '/roofs/1/save',
+            data: form.serialize(),
+            success: function(response){
+
+            },
+        });
+
+    });
+
 
 
     function roof1(){
@@ -28,12 +73,17 @@ $(document).ready ( function(){
         let count_stropil = (sh_d / strop_sh).toFixed(0);
         let rast_dosk_cout = ((Math.sqrt((sh_a^2)+(sh_b^2))+ sh_c)  / rast_dosk ).toFixed(0);
 
-        $('#ugol_naklona').html(ugol2);
-        $('#area').html(area);
-        $('#count_area').html(count_area);
-        $('#dlina_stripol').html(dlina_stripol);
+        $('#ugol_naklona').text(ugol2);
+        $('#area').text(area);
+        $('#count_area').text(count_area);
+        $('#dlina_stripol').text(dlina_stripol);
+        $('#count_st').text(rast_dosk_cout);
 
-        $('#count_st').html(rast_dosk_cout);
+        $('#ugol_naklona_h').val(ugol2);
+        $('#area_h').val(area);
+        $('#count_area_h').val(count_area);
+        $('#dlina_stripol_h').val(dlina_stripol);
+        $('#count_st_h').val(rast_dosk_cout);
 
 
         let c = document.getElementById("myCanvas");

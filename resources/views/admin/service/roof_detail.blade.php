@@ -146,15 +146,15 @@
 
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="image[img]">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <label class="custom-file-label" for="customFile">Choose file 1</label>
                             </div>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="image[img2]">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <label class="custom-file-label" for="customFile">Choose file 2</label>
                             </div>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="image[img3]">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <label class="custom-file-label" for="customFile">Choose file 3</label>
                             </div>
                         </div>
 
@@ -163,13 +163,13 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="{{ asset($img) }}" alt="">
+                        <img style="max-width: 100%;" src="{{ asset($img) }}" alt="">
                     </div>
                     <div class="col-lg-4">
-                        <img src="{{ asset($img2) }}" alt="">
+                        <img style="max-width: 100%;" src="{{ asset($img2) }}" alt="">
                     </div>
                     <div class="col-lg-4">
-                        <img src="{{ asset($img3) }}" alt="">
+                        <img style="max-width: 100%;" src="{{ asset($img3) }}" alt="">
                     </div>
                 </div>
 

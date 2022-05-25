@@ -9,12 +9,14 @@ use Database\Seeders\DatabaseSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RegisterController extends Controller {
+class RegisterController extends Controller
+{
 
     public function index()
     {
         return view('admin.register');
     }
+
     public function register(RegisterRequest $request)
     {
         $user = new User();
@@ -28,14 +30,16 @@ class RegisterController extends Controller {
         $user->save();
         $user->assignRole('admin');
 
-        return redirect()->back()->with('success','Сообщение было давлено');
+        return redirect()->back()->with('success', 'Сообщение было давлено');
 
 
     }
+
     public function index_user()
     {
         return view('user.register');
     }
+
     public function register_user(RegisterRequest $request)
     {
         $user = new User();
@@ -49,7 +53,7 @@ class RegisterController extends Controller {
         $user->save();
         $user->assignRole('admin');
 
-        return redirect()->back()->with('success','Пользователь был добавлен!');
+        return redirect()->back()->with('success', 'Пользователь был добавлен!');
 
 
     }
